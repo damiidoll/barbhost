@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ready Units Collection</title>
     <style>
         :root {
@@ -143,6 +143,11 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.06em;
+        }
+
+        .filter-label-spacer {
+            display: block;
+            height: 17px;
         }
 
         .filter-select {
@@ -564,30 +569,30 @@
 
         <div class="search-section">
             <div class="search-box">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="Search by name...">
+                <span class="search-icon" aria-hidden="true">🔍</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search by name..." aria-label="Search products by name">
             </div>
             <div class="filters-grid">
                 <div class="filter-group">
-                    <label class="filter-label">Length</label>
+                    <label class="filter-label" for="filterLength">Length</label>
                     <select class="filter-select" id="filterLength">
                         <option value="">All Lengths</option>
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label class="filter-label">Color</label>
+                    <label class="filter-label" for="filterColor">Color</label>
                     <select class="filter-select" id="filterColor">
                         <option value="">All Colors</option>
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label class="filter-label">Lace Size</label>
+                    <label class="filter-label" for="filterLaceSize">Lace Size</label>
                     <select class="filter-select" id="filterLaceSize">
                         <option value="">All Sizes</option>
                     </select>
                 </div>
                 <div class="filter-group clear-filters">
-                    <label class="filter-label">&nbsp;</label>
+                    <span class="filter-label-spacer" aria-hidden="true"></span>
                     <button class="btn btn-small" id="clearFiltersBtn">Clear All</button>
                 </div>
             </div>
