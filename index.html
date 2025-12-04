@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <style>
+        :root {
+            --vx-pink: #FF93FD;
+            --vx-pink-08: rgba(255,147,253,0.08);
+            --vx-pink-14: rgba(255,147,253,0.14);
+            --vx-pink-18: rgba(255,147,253,0.18);
+            --vx-rose: #E0C6A8;
+            --vx-rose-10: rgba(224,198,168,0.10);
+            --vx-rose-20: rgba(224,198,168,0.20);
+            --vx-edge: rgba(255,255,255,0.08);
+            --vx-white-05: rgba(255,255,255,0.05);
+            --vx-white-08: rgba(255,255,255,0.08);
+            --vx-bg: #0D0C0D;
+            --vx-dark: rgba(12,11,13,1);
+            --vx-radius: 18px;
+            --vx-shadow:
+                0 28px 60px rgba(0,0,0,0.55),
+                inset 0 0 40px var(--vx-pink-08),
+                inset 0 0 20px var(--vx-rose-10);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            background: radial-gradient(80% 80% at 50% 30%, rgba(255,147,253,0.04), rgba(0,0,0,1));
+            padding: 30px;
+            color: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--vx-edge);
+            border-radius: var(--vx-radius);
+            padding: 24px 30px;
+            box-shadow: var(--vx-shadow);
+            backdrop-filter: blur(14px);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            color: var(--vx-rose);
+            font-size: 28px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-shadow: 0 0 12px rgba(224,198,168,0.3);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 26px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.28);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.08);
+            text-transform: uppercase;
+            transition: 0.25s ease;
+            color: var(--vx-pink);
+            backdrop-filter: blur(6px);
+        }
+
+        .btn:hover:not(:disabled) {
+            color: var(--vx-rose);
+            border-color: var(--vx-rose);
+            box-shadow: 0 0 12px var(--vx-rose-20);
+            transform: translateY(-1px);
+        }
+
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .btn-export {
+            color: var(--vx-rose);
+            border-color: rgba(224,198,168,0.2);
+        }
+
+        .btn-export:hover:not(:disabled) {
+            color: var(--vx-pink);
+            border-color: var(--vx-pink);
+            box-shadow: 0 0 12px var(--vx-pink-18);
+        }
+
+        .stats {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--vx-edge);
+            border-radius: var(--vx-radius);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--vx-shadow);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .stat-item {
+            font-size: 15px;
+            color: var(--vx-rose);
+            letter-spacing: 0.02em;
+        }
+
+        .stat-item strong {
+            font-size: 20px;
+            color: var(--vx-pink);
+            margin-left: 8px;
+            text-shadow: 0 0 8px var(--vx-pink-18);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.04);
+            border-radius: var(--vx-radius);
+            border: 1px solid var(--vx-edge);
+            overflow: hidden;
+            box-shadow: var(--vx-shadow);
+            backdrop-filter: blur(10px);
+            transition: 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 16px var(--vx-pink-18), 0 0 28px var(--vx-rose-20);
+            border-color: rgba(255,147,253,0.3);
+        }
+
+        .product-card.selected {
+            border: 2px solid var(--vx-pink);
+            box-shadow: 0 0 20px var(--vx-pink-18);
+            background: rgba(255,147,253,0.06);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background: rgba(0,0,0,0.6);
+            border-bottom: 1px solid var(--vx-edge);
+        }
+
+        .product-info {
+            padding: 18px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--vx-rose);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--vx-pink);
+            margin-bottom: 12px;
+            text-shadow: 0 0 6px var(--vx-pink-18);
+        }
+
+        .selection-controls {
+            border-top: 1px solid var(--vx-edge);
+            padding-top: 12px;
+            margin-top: auto;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .checkbox-wrapper label {
+            color: var(--vx-rose);
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: 0.25s ease;
+        }
+
+        .checkbox-wrapper:hover label {
+            color: var(--vx-pink);
+        }
+
+        .checkbox-wrapper input {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--vx-rose);
+            border-radius: 4px;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            transition: 0.25s ease;
+        }
+
+        .checkbox-wrapper input:hover {
+            border-color: var(--vx-pink);
+            box-shadow: 0 0 8px var(--vx-pink-18);
+        }
+
+        .checkbox-wrapper input:checked {
+            background: var(--vx-pink);
+            border-color: var(--vx-pink);
+            box-shadow: 0 0 12px var(--vx-pink-18);
+        }
+
+        .checkbox-wrapper input:checked::after {
+            content: '✓';
+            position: absolute;
+            color: #000;
+            font-size: 12px;
+            font-weight: 800;
+            left: 2px;
+            top: -1px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255,255,255,0.04);
+            border-radius: var(--vx-radius);
+            border: 1px solid var(--vx-edge);
+            box-shadow: var(--vx-shadow);
+        }
+
+        .empty-state h2 {
+            color: var(--vx-rose);
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .empty-state p {
+            color: var(--vx-pink);
+            opacity: 0.7;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--vx-pink);
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--vx-pink);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255,255,255,0.04);
+            border-radius: var(--vx-radius);
+            border: 1px solid var(--vx-edge);
+            box-shadow: var(--vx-shadow);
+            color: var(--vx-pink);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 16px;
+            }
+
+            .product-image {
+                height: 180px;
+            }
+
+            .product-info {
+                padding: 14px;
+            }
+
+            .product-name {
+                font-size: 14px;
+            }
+
+            .product-price {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 8px 18px;
+                font-size: 12px;
+            }
+
+            .stats {
+                padding: 16px;
+            }
+
+            .stat-item {
+                font-size: 13px;
+            }
+
+            .stat-item strong {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Product Catalog</h1>
+            <div class="controls">
+                <button class="btn btn-export" id="exportBtn" disabled>Export Selected</button>
+            </div>
+        </div>
+        <div class="stats" id="statsBar">
+            <div class="stat-item">Total Products: <strong id="totalProducts">0</strong></div>
+            <div class="stat-item">Selected: <strong id="selectedCount">0</strong></div>
+        </div>
+        <div id="productGrid" class="product-grid">
+            <div class="loading">Loading products</div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            var products = [];
+            var selectedProducts = new Set();
+
+            function parseCSV(text) {
+                var lines = text.split('\n');
+                var headers = parseCSVLine(lines[0]);
+                var result = [];
+
+                for (var i = 1; i < lines.length; i++) {
+                    var line = lines[i].trim();
+                    if (line === '') continue;
+                    
+                    var values = parseCSVLine(line);
+                    var obj = {};
+                    
+                    for (var j = 0; j < headers.length; j++) {
+                        obj[headers[j].trim()] = values[j] ? values[j].trim() : '';
+                    }
+                    
+                    result.push(obj);
+                }
+                
+                return result;
+            }
+
+            function parseCSVLine(line) {
+                var result = [];
+                var current = '';
+                var inQuotes = false;
+                
+                for (var i = 0; i < line.length; i++) {
+                    var char = line[i];
+                    
+                    if (char === '"') {
+                        if (inQuotes && line[i + 1] === '"') {
+                            current += '"';
+                            i++;
+                        } else {
+                            inQuotes = !inQuotes;
+                        }
+                    } else if (char === ',' && !inQuotes) {
+                        result.push(current);
+                        current = '';
+                    } else {
+                        current += char;
+                    }
+                }
+                
+                result.push(current);
+                return result;
+            }
+
+            function extractWixImageId(url) {
+                if (!url) return null;
+                
+                // Handle multiple images separated by semicolons (take first one)
+                if (url.indexOf(';') !== -1) {
+                    url = url.split(';')[0].trim();
+                }
+                
+                // Handle wix:image://v1/[ID]/filename format
+                var wixMatch = url.match(/wix:image:\/\/v1\/([^\/~]+)/);
+                if (wixMatch) {
+                    return wixMatch[1];
+                }
+                
+                // Handle direct Wix static URLs
+                var staticMatch = url.match(/static\.wixstatic\.com\/media\/([^\/~]+)/);
+                if (staticMatch) {
+                    return staticMatch[1];
+                }
+                
+                // Handle URLs with ID at the start (e.g., 11062b_xxx~mv2.jpg)
+                var idMatch = url.match(/([a-f0-9]+_[a-f0-9]+)/i);
+                if (idMatch) {
+                    return idMatch[1];
+                }
+                
+                return null;
+            }
+
+            function convertToWixUrl(productImageUrl) {
+                if (!productImageUrl) return '';
+                
+                var url = productImageUrl.trim();
+                
+                // Handle multiple images separated by semicolons (take first one)
+                if (url.indexOf(';') !== -1) {
+                    url = url.split(';')[0].trim();
+                }
+                
+                // Handle Wix static media format: db47f1_xxx~mv2.png
+                if (url.match(/^[a-f0-9_]+~mv2\.(png|jpg|jpeg|webp)$/i)) {
+                    return 'https://static.wixstatic.com/media/' + url;
+                }
+                
+                // Handle Wix image:// protocol
+                if (url.indexOf('wix:image://') === 0) {
+                    var id = extractWixImageId(url);
+                    if (id) {
+                        var extMatch = url.match(/\.(png|jpg|jpeg|webp)/i);
+                        var ext = extMatch ? extMatch[0] : '.png';
+                        return 'https://static.wixstatic.com/media/' + id + '~mv2' + ext;
+                    }
+                }
+                
+                // Handle relative URLs
+                if (url.indexOf('//') === 0) {
+                    return 'https:' + url;
+                }
+                
+                // If already a full URL, return as-is
+                if (url.indexOf('http://') === 0 || url.indexOf('https://') === 0) {
+                    return url;
+                }
+                
+                // Try to construct Wix static URL if it looks like a media ID with ~mv2
+                if (url.indexOf('~mv2') !== -1) {
+                    return 'https://static.wixstatic.com/media/' + url;
+                }
+                
+                return '';
+            }
+
+            function formatPrice(price) {
+                var num = parseFloat(price);
+                if (isNaN(num)) return price;
+                return '$' + num.toFixed(2);
+            }
+
+            function createProductCard(product, index) {
+                var card = document.createElement('div');
+                card.className = 'product-card';
+                card.setAttribute('data-index', index);
+
+                var imageUrl = convertToWixUrl(product.productImageUrl);
+                
+                var fallbackSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280"><rect width="280" height="280" fill="#1a1a1a" /><text x="50%" y="50%" fill="#666" text-anchor="middle" dominant-baseline="middle" font-size="14">No Image</text></svg>';
+                var fallback = 'data:image/svg+xml,' + encodeURIComponent(fallbackSvg);
+
+                var img = document.createElement('img');
+                img.className = 'product-image';
+                img.src = imageUrl || fallback;
+                img.alt = product.name || 'Product Image';
+                img.loading = 'lazy';
+                img.onerror = function() {
+                    this.src = fallback;
+                };
+
+                var info = document.createElement('div');
+                info.className = 'product-info';
+
+                var name = document.createElement('div');
+                name.className = 'product-name';
+                name.textContent = product.name || 'Unknown Product';
+
+                var price = document.createElement('div');
+                price.className = 'product-price';
+                price.textContent = formatPrice(product.price);
+
+                var selectionControls = document.createElement('div');
+                selectionControls.className = 'selection-controls';
+
+                var checkboxWrapper = document.createElement('div');
+                checkboxWrapper.className = 'checkbox-wrapper';
+
+                var checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = 'cb-' + index;
+                checkbox.setAttribute('data-index', index);
+                checkbox.addEventListener('change', function() {
+                    toggleSelection(index, this.checked);
+                });
+
+                var checkboxLabel = document.createElement('label');
+                checkboxLabel.setAttribute('for', 'cb-' + index);
+                checkboxLabel.textContent = 'Select Product';
+
+                checkboxWrapper.appendChild(checkbox);
+                checkboxWrapper.appendChild(checkboxLabel);
+                selectionControls.appendChild(checkboxWrapper);
+
+                info.appendChild(name);
+                info.appendChild(price);
+                info.appendChild(selectionControls);
+
+                card.appendChild(img);
+                card.appendChild(info);
+
+                return card;
+            }
+
+            function toggleSelection(index, isSelected) {
+                var card = document.querySelector('.product-card[data-index="' + index + '"]');
+                
+                if (isSelected) {
+                    selectedProducts.add(index);
+                    if (card) card.classList.add('selected');
+                } else {
+                    selectedProducts.delete(index);
+                    if (card) card.classList.remove('selected');
+                }
+                
+                updateStats();
+            }
+
+            function updateStats() {
+                var totalEl = document.getElementById('totalProducts');
+                var selectedEl = document.getElementById('selectedCount');
+                var exportBtn = document.getElementById('exportBtn');
+                
+                totalEl.textContent = products.length;
+                selectedEl.textContent = selectedProducts.size;
+                exportBtn.disabled = selectedProducts.size === 0;
+            }
+
+            function exportSelectedToCSV() {
+                if (selectedProducts.size === 0) {
+                    alert('Please select at least one product to export.');
+                    return;
+                }
+
+                var csvContent = 'name\n';
+                
+                selectedProducts.forEach(function(index) {
+                    var product = products[index];
+                    if (product && product.name) {
+                        var name = product.name;
+                        if (name.indexOf(',') !== -1 || name.indexOf('"') !== -1 || name.indexOf('\n') !== -1) {
+                            name = '"' + name.replace(/"/g, '""') + '"';
+                        }
+                        csvContent += name + '\n';
+                    }
+                });
+
+                var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                var url = URL.createObjectURL(blob);
+                var link = document.createElement('a');
+                link.setAttribute('href', url);
+                link.setAttribute('download', 'selected_products.csv');
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+            }
+
+            function renderProducts() {
+                var grid = document.getElementById('productGrid');
+                grid.innerHTML = '';
+
+                if (products.length === 0) {
+                    grid.innerHTML = '<div class="empty-state"><h2>No Products Found</h2><p>The product catalog is empty</p></div>';
+                    return;
+                }
+
+                for (var i = 0; i < products.length; i++) {
+                    var card = createProductCard(products[i], i);
+                    grid.appendChild(card);
+                }
+                
+                updateStats();
+            }
+
+            function showError(message) {
+                var grid = document.getElementById('productGrid');
+                grid.innerHTML = '<div class="error">' + message + '</div>';
+            }
+
+            function loadProducts() {
+                var csvPath = 'products.csv';
+                
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', csvPath, true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200 || xhr.status === 0) {
+                            try {
+                                products = parseCSV(xhr.responseText);
+                                renderProducts();
+                            } catch (e) {
+                                showError('Error parsing CSV: ' + e.message);
+                            }
+                        } else {
+                            showError('Error loading products.csv. Status: ' + xhr.status);
+                        }
+                    }
+                };
+                xhr.onerror = function() {
+                    showError('Network error while loading products.');
+                };
+                xhr.send();
+            }
+
+            document.getElementById('exportBtn').addEventListener('click', exportSelectedToCSV);
+
+            loadProducts();
+        })();
+    </script>
+</body>
+</html>
