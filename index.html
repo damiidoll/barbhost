@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Catalog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ready Units Collection</title>
     <style>
         :root {
             --vx-pink: #FF93FD;
@@ -19,6 +19,7 @@
             --vx-bg: #0D0C0D;
             --vx-dark: rgba(12,11,13,1);
             --vx-radius: 18px;
+            --vx-radius-sm: 12px;
             --vx-shadow:
                 0 28px 60px rgba(0,0,0,0.55),
                 inset 0 0 40px var(--vx-pink-08),
@@ -29,14 +30,16 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: "Montserrat", sans-serif;
+            font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
             background: radial-gradient(80% 80% at 50% 30%, rgba(255,147,253,0.04), rgba(0,0,0,1));
-            padding: 30px;
+            padding: 16px;
             color: #f5f5f5;
             min-height: 100vh;
+            line-height: 1.4;
         }
 
         .container {
@@ -44,40 +47,138 @@
             margin: 0 auto;
         }
 
+        /* Header */
         .header {
             background: rgba(255,255,255,0.04);
             border: 1px solid var(--vx-edge);
             border-radius: var(--vx-radius);
-            padding: 24px 30px;
+            padding: 20px;
             box-shadow: var(--vx-shadow);
             backdrop-filter: blur(14px);
-            margin-bottom: 30px;
+            margin-bottom: 16px;
             text-align: center;
         }
 
         h1 {
-            margin-bottom: 15px;
             color: var(--vx-rose);
-            font-size: 28px;
+            font-size: 22px;
             letter-spacing: 0.04em;
             text-transform: uppercase;
             font-weight: 700;
             text-shadow: 0 0 12px rgba(224,198,168,0.3);
+            margin-bottom: 6px;
         }
 
-        .controls {
+        .subtitle {
+            color: var(--vx-pink);
+            font-size: 12px;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Search Section */
+        .search-section {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--vx-edge);
+            border-radius: var(--vx-radius);
+            padding: 16px;
+            box-shadow: var(--vx-shadow);
+            backdrop-filter: blur(10px);
+            margin-bottom: 16px;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 16px 14px 44px;
+            border: 1px solid var(--vx-edge);
+            background: rgba(0,0,0,0.4);
+            border-radius: var(--vx-radius-sm);
+            color: #fff;
+            font-size: 16px;
+            transition: 0.25s ease;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+
+        .search-input:focus {
+            border-color: var(--vx-pink);
+            box-shadow: 0 0 12px var(--vx-pink-18);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--vx-pink);
+            font-size: 18px;
+            pointer-events: none;
+        }
+
+        /* Filter Grid */
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .filter-group {
             display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            align-items: center;
+            flex-direction: column;
+            gap: 6px;
         }
 
-        .btn {
-            padding: 10px 26px;
-            border-radius: 10px;
-            background: rgba(0,0,0,0.28);
+        .filter-label {
+            color: var(--vx-pink);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .filter-select {
+            padding: 12px 14px;
+            border: 1px solid var(--vx-edge);
+            background: rgba(0,0,0,0.4);
+            border-radius: var(--vx-radius-sm);
+            color: var(--vx-rose);
             font-size: 14px;
+            cursor: pointer;
+            transition: 0.25s ease;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23FF93FD'%3E%3Cpath d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 36px;
+        }
+
+        .filter-select:focus {
+            border-color: var(--vx-pink);
+            box-shadow: 0 0 10px var(--vx-pink-18);
+        }
+
+        .clear-filters {
+            grid-column: 1 / -1;
+            margin-top: 8px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 20px;
+            border-radius: var(--vx-radius-sm);
+            background: rgba(0,0,0,0.28);
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             border: 1px solid rgba(255,255,255,0.08);
@@ -85,6 +186,13 @@
             transition: 0.25s ease;
             color: var(--vx-pink);
             backdrop-filter: blur(6px);
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            text-decoration: none;
         }
 
         .btn:hover:not(:disabled) {
@@ -94,9 +202,25 @@
             transform: translateY(-1px);
         }
 
+        .btn:active {
+            transform: translateY(0);
+        }
+
         .btn:disabled {
             opacity: 0.4;
             cursor: not-allowed;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--vx-pink), #d466d4);
+            color: #000;
+            border: none;
+            font-weight: 700;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            color: #000;
+            box-shadow: 0 0 20px var(--vx-pink-18);
         }
 
         .btn-export {
@@ -104,43 +228,51 @@
             border-color: rgba(224,198,168,0.2);
         }
 
-        .btn-export:hover:not(:disabled) {
-            color: var(--vx-pink);
-            border-color: var(--vx-pink);
-            box-shadow: 0 0 12px var(--vx-pink-18);
+        .btn-small {
+            padding: 10px 16px;
+            font-size: 11px;
         }
 
+        /* Stats Bar */
         .stats {
             background: rgba(255,255,255,0.04);
             border: 1px solid var(--vx-edge);
             border-radius: var(--vx-radius);
-            padding: 20px 24px;
-            margin-bottom: 24px;
+            padding: 14px 16px;
+            margin-bottom: 16px;
             box-shadow: var(--vx-shadow);
             backdrop-filter: blur(10px);
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
+        }
+
+        .stats-left {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
         .stat-item {
-            font-size: 15px;
+            font-size: 13px;
             color: var(--vx-rose);
             letter-spacing: 0.02em;
         }
 
         .stat-item strong {
-            font-size: 20px;
+            font-size: 16px;
             color: var(--vx-pink);
-            margin-left: 8px;
+            margin-left: 4px;
             text-shadow: 0 0 8px var(--vx-pink-18);
         }
 
+        /* Product Grid */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
         }
 
         .product-card {
@@ -156,7 +288,7 @@
         }
 
         .product-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             box-shadow: 0 0 16px var(--vx-pink-18), 0 0 28px var(--vx-rose-20);
             border-color: rgba(255,147,253,0.3);
         }
@@ -167,40 +299,78 @@
             background: rgba(255,147,253,0.06);
         }
 
-        .product-image {
+        .product-image-wrapper {
+            position: relative;
             width: 100%;
-            height: 280px;
-            object-fit: cover;
+            padding-top: 120%;
             background: rgba(0,0,0,0.6);
-            border-bottom: 1px solid var(--vx-edge);
+            overflow: hidden;
+        }
+
+        .product-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
         }
 
         .product-info {
-            padding: 18px;
+            padding: 12px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            gap: 6px;
         }
 
         .product-name {
-            font-size: 16px;
+            font-size: 13px;
             font-weight: 600;
             color: var(--vx-rose);
-            margin-bottom: 10px;
             line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .product-price {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--vx-pink);
-            margin-bottom: 12px;
             text-shadow: 0 0 6px var(--vx-pink-18);
         }
 
-        .selection-controls {
-            border-top: 1px solid var(--vx-edge);
-            padding-top: 12px;
+        .product-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 4px;
+        }
+
+        .product-tag {
+            font-size: 10px;
+            padding: 4px 8px;
+            background: rgba(255,147,253,0.1);
+            border: 1px solid var(--vx-pink-18);
+            border-radius: 20px;
+            color: var(--vx-pink);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 12px;
+            padding-top: 0;
             margin-top: auto;
         }
 
@@ -209,11 +379,12 @@
             align-items: center;
             gap: 8px;
             cursor: pointer;
+            padding: 8px 0;
         }
 
         .checkbox-wrapper label {
             color: var(--vx-rose);
-            font-size: 14px;
+            font-size: 11px;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -227,19 +398,15 @@
         .checkbox-wrapper input {
             appearance: none;
             -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             border: 2px solid var(--vx-rose);
             border-radius: 4px;
             background: transparent;
             cursor: pointer;
             position: relative;
             transition: 0.25s ease;
-        }
-
-        .checkbox-wrapper input:hover {
-            border-color: var(--vx-pink);
-            box-shadow: 0 0 8px var(--vx-pink-18);
+            flex-shrink: 0;
         }
 
         .checkbox-wrapper input:checked {
@@ -254,34 +421,39 @@
             color: #000;
             font-size: 12px;
             font-weight: 800;
-            left: 2px;
-            top: -1px;
+            left: 3px;
+            top: 0px;
         }
 
+        /* Empty & Loading States */
         .empty-state {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px;
             background: rgba(255,255,255,0.04);
             border-radius: var(--vx-radius);
             border: 1px solid var(--vx-edge);
             box-shadow: var(--vx-shadow);
+            grid-column: 1 / -1;
         }
 
         .empty-state h2 {
             color: var(--vx-rose);
-            margin-bottom: 10px;
-            font-weight: 400;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 18px;
         }
 
         .empty-state p {
             color: var(--vx-pink);
             opacity: 0.7;
+            font-size: 13px;
         }
 
         .loading {
             text-align: center;
             padding: 40px;
             color: var(--vx-pink);
+            grid-column: 1 / -1;
         }
 
         .loading::after {
@@ -302,63 +474,83 @@
 
         .error {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px;
             background: rgba(255,255,255,0.04);
             border-radius: var(--vx-radius);
             border: 1px solid var(--vx-edge);
             box-shadow: var(--vx-shadow);
             color: var(--vx-pink);
+            grid-column: 1 / -1;
         }
 
-        @media (max-width: 600px) {
+        /* Desktop Styles */
+        @media (min-width: 640px) {
             body {
-                padding: 15px;
+                padding: 24px;
             }
 
             .header {
-                padding: 20px;
+                padding: 24px 30px;
             }
 
             h1 {
-                font-size: 22px;
+                font-size: 28px;
             }
 
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 16px;
-            }
-
-            .product-image {
-                height: 180px;
-            }
-
-            .product-info {
-                padding: 14px;
-            }
-
-            .product-name {
+            .subtitle {
                 font-size: 14px;
             }
 
-            .product-price {
-                font-size: 16px;
+            .search-section {
+                padding: 20px;
             }
 
-            .btn {
-                padding: 8px 18px;
-                font-size: 12px;
+            .filters-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
 
-            .stats {
+            .clear-filters {
+                grid-column: auto;
+                margin-top: 0;
+                align-self: end;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+
+            .product-info {
                 padding: 16px;
             }
 
-            .stat-item {
-                font-size: 13px;
+            .product-name {
+                font-size: 15px;
             }
 
-            .stat-item strong {
-                font-size: 16px;
+            .product-price {
+                font-size: 18px;
+            }
+
+            .product-tag {
+                font-size: 11px;
+                padding: 5px 10px;
+            }
+
+            .product-actions {
+                padding: 16px;
+                padding-top: 0;
+            }
+
+            .stats {
+                padding: 16px 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 24px;
             }
         }
     </style>
@@ -366,32 +558,74 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Product Catalog</h1>
-            <div class="controls">
-                <button class="btn btn-export" id="exportBtn" disabled>Export Selected</button>
+            <h1>Ready Units</h1>
+            <p class="subtitle">Styled & Ready to Install</p>
+        </div>
+
+        <div class="search-section">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search by name...">
+            </div>
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label class="filter-label">Length</label>
+                    <select class="filter-select" id="filterLength">
+                        <option value="">All Lengths</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Color</label>
+                    <select class="filter-select" id="filterColor">
+                        <option value="">All Colors</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Lace Size</label>
+                    <select class="filter-select" id="filterLaceSize">
+                        <option value="">All Sizes</option>
+                    </select>
+                </div>
+                <div class="filter-group clear-filters">
+                    <label class="filter-label">&nbsp;</label>
+                    <button class="btn btn-small" id="clearFiltersBtn">Clear All</button>
+                </div>
             </div>
         </div>
+
         <div class="stats" id="statsBar">
-            <div class="stat-item">Total Products: <strong id="totalProducts">0</strong></div>
-            <div class="stat-item">Selected: <strong id="selectedCount">0</strong></div>
+            <div class="stats-left">
+                <div class="stat-item">Showing: <strong id="visibleProducts">0</strong></div>
+                <div class="stat-item">Selected: <strong id="selectedCount">0</strong></div>
+            </div>
+            <button class="btn btn-export btn-small" id="exportBtn" disabled>Export Selected</button>
         </div>
+
         <div id="productGrid" class="product-grid">
-            <div class="loading">Loading products</div>
+            <div class="loading">Loading units</div>
         </div>
     </div>
 
     <script>
         (function() {
             var products = [];
+            var filteredProducts = [];
             var selectedProducts = new Set();
+            var activeFilters = {
+                search: '',
+                length: '',
+                color: '',
+                laceSize: ''
+            };
             
-            // SVG placeholder for products without images (dark themed to match VX design)
-            var FALLBACK_IMAGE_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280">' +
-                '<rect width="280" height="280" fill="#1a1a1a"/>' +
+            // SVG placeholder for products without images
+            var FALLBACK_IMAGE_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="280" height="336">' +
+                '<rect width="280" height="336" fill="#1a1a1a"/>' +
                 '<text x="50%" y="50%" fill="#666" text-anchor="middle" dominant-baseline="middle" font-size="14">No Image</text>' +
                 '</svg>';
             var FALLBACK_IMAGE = 'data:image/svg+xml,' + encodeURIComponent(FALLBACK_IMAGE_SVG);
 
+            // CSV Parsing
             function parseCSV(text) {
                 var lines = text.split('\n');
                 var headers = parseCSVLine(lines[0]);
@@ -441,32 +675,23 @@
                 return result;
             }
 
+            // Wix URL Conversion
             function extractWixImageId(url) {
                 if (!url) return null;
                 
-                // Handle multiple images separated by semicolons (take first one)
                 if (url.indexOf(';') !== -1) {
                     url = url.split(';')[0].trim();
                 }
                 
-                // Handle wix:image://v1/[ID]/filename format
                 var wixMatch = url.match(/wix:image:\/\/v1\/([^\/~]+)/);
-                if (wixMatch) {
-                    return wixMatch[1];
-                }
+                if (wixMatch) return wixMatch[1];
                 
-                // Handle direct Wix static URLs
                 var staticMatch = url.match(/static\.wixstatic\.com\/media\/([^\/~]+)/);
-                if (staticMatch) {
-                    return staticMatch[1];
-                }
+                if (staticMatch) return staticMatch[1];
                 
-                // Handle URLs with ID at the start
                 // Matches Wix media ID format like '11062b_5a5b3b1e0c2c4f5a8b9c0d1e2f3a4b5c'
                 var idMatch = url.match(/([a-f0-9]+_[a-f0-9]+)/i);
-                if (idMatch) {
-                    return idMatch[1];
-                }
+                if (idMatch) return idMatch[1];
                 
                 return null;
             }
@@ -476,18 +701,15 @@
                 
                 var url = productImageUrl.trim();
                 
-                // Handle multiple images separated by semicolons (take first one)
                 if (url.indexOf(';') !== -1) {
                     url = url.split(';')[0].trim();
                 }
                 
-                // Handle Wix static media format
                 // Matches pattern like 'db47f1_xxx~mv2.png' or '11062b_abc123~mv2.jpg'
                 if (url.match(/^[a-f0-9_]+~mv2\.(png|jpg|jpeg|webp)$/i)) {
                     return 'https://static.wixstatic.com/media/' + url;
                 }
                 
-                // Handle Wix image:// protocol
                 if (url.indexOf('wix:image://') === 0) {
                     var id = extractWixImageId(url);
                     if (id) {
@@ -497,17 +719,14 @@
                     }
                 }
                 
-                // Handle relative URLs
                 if (url.indexOf('//') === 0) {
                     return 'https:' + url;
                 }
                 
-                // If already a full URL, return as-is
                 if (url.indexOf('http://') === 0 || url.indexOf('https://') === 0) {
                     return url;
                 }
                 
-                // Try to construct Wix static URL if it looks like a media ID with ~mv2
                 if (url.indexOf('~mv2') !== -1) {
                     return 'https://static.wixstatic.com/media/' + url;
                 }
@@ -521,12 +740,98 @@
                 return '$' + num.toFixed(2);
             }
 
-            function createProductCard(product, index) {
+            // Get unique values for filters
+            function getUniqueValues(field) {
+                var values = [];
+                for (var i = 0; i < products.length; i++) {
+                    var val = products[i][field];
+                    if (val && values.indexOf(val) === -1) {
+                        values.push(val);
+                    }
+                }
+                return values.sort();
+            }
+
+            // Populate filter dropdowns
+            function populateFilters() {
+                var lengthSelect = document.getElementById('filterLength');
+                var colorSelect = document.getElementById('filterColor');
+                var laceSizeSelect = document.getElementById('filterLaceSize');
+
+                var lengths = getUniqueValues('length');
+                var colors = getUniqueValues('color');
+                var laceSizes = getUniqueValues('laceSize');
+
+                lengths.forEach(function(val) {
+                    var opt = document.createElement('option');
+                    opt.value = val;
+                    opt.textContent = val;
+                    lengthSelect.appendChild(opt);
+                });
+
+                colors.forEach(function(val) {
+                    var opt = document.createElement('option');
+                    opt.value = val;
+                    opt.textContent = val;
+                    colorSelect.appendChild(opt);
+                });
+
+                laceSizes.forEach(function(val) {
+                    var opt = document.createElement('option');
+                    opt.value = val;
+                    opt.textContent = val;
+                    laceSizeSelect.appendChild(opt);
+                });
+            }
+
+            // Apply filters
+            function applyFilters() {
+                filteredProducts = products.filter(function(product) {
+                    var searchMatch = true;
+                    var lengthMatch = true;
+                    var colorMatch = true;
+                    var laceSizeMatch = true;
+
+                    if (activeFilters.search) {
+                        var searchLower = activeFilters.search.toLowerCase();
+                        var nameLower = (product.name || '').toLowerCase();
+                        searchMatch = nameLower.indexOf(searchLower) !== -1;
+                    }
+
+                    if (activeFilters.length) {
+                        lengthMatch = product.length === activeFilters.length;
+                    }
+
+                    if (activeFilters.color) {
+                        colorMatch = product.color === activeFilters.color;
+                    }
+
+                    if (activeFilters.laceSize) {
+                        laceSizeMatch = product.laceSize === activeFilters.laceSize;
+                    }
+
+                    return searchMatch && lengthMatch && colorMatch && laceSizeMatch;
+                });
+
+                renderProducts();
+                updateStats();
+            }
+
+            // Create product card
+            function createProductCard(product, originalIndex) {
                 var card = document.createElement('div');
                 card.className = 'product-card';
-                card.setAttribute('data-index', index);
+                card.setAttribute('data-index', originalIndex);
+
+                if (selectedProducts.has(originalIndex)) {
+                    card.classList.add('selected');
+                }
 
                 var imageUrl = convertToWixUrl(product.productImageUrl);
+
+                // Image wrapper
+                var imageWrapper = document.createElement('div');
+                imageWrapper.className = 'product-image-wrapper';
 
                 var img = document.createElement('img');
                 img.className = 'product-image';
@@ -537,6 +842,9 @@
                     this.src = FALLBACK_IMAGE;
                 };
 
+                imageWrapper.appendChild(img);
+
+                // Product info
                 var info = document.createElement('div');
                 info.className = 'product-info';
 
@@ -548,34 +856,75 @@
                 price.className = 'product-price';
                 price.textContent = formatPrice(product.price);
 
-                var selectionControls = document.createElement('div');
-                selectionControls.className = 'selection-controls';
+                // Product tags/details
+                var details = document.createElement('div');
+                details.className = 'product-details';
 
+                if (product.length) {
+                    var lengthTag = document.createElement('span');
+                    lengthTag.className = 'product-tag';
+                    lengthTag.textContent = product.length;
+                    details.appendChild(lengthTag);
+                }
+
+                if (product.color) {
+                    var colorTag = document.createElement('span');
+                    colorTag.className = 'product-tag';
+                    colorTag.textContent = product.color;
+                    details.appendChild(colorTag);
+                }
+
+                if (product.laceSize) {
+                    var laceTag = document.createElement('span');
+                    laceTag.className = 'product-tag';
+                    laceTag.textContent = product.laceSize;
+                    details.appendChild(laceTag);
+                }
+
+                info.appendChild(name);
+                info.appendChild(price);
+                if (details.children.length > 0) {
+                    info.appendChild(details);
+                }
+
+                // Actions
+                var actions = document.createElement('div');
+                actions.className = 'product-actions';
+
+                // View Product button
+                if (product.productUrl) {
+                    var viewBtn = document.createElement('a');
+                    viewBtn.className = 'btn btn-primary btn-small';
+                    viewBtn.href = product.productUrl;
+                    viewBtn.target = '_blank';
+                    viewBtn.rel = 'noopener noreferrer';
+                    viewBtn.textContent = 'View & Buy';
+                    actions.appendChild(viewBtn);
+                }
+
+                // Checkbox
                 var checkboxWrapper = document.createElement('div');
                 checkboxWrapper.className = 'checkbox-wrapper';
 
                 var checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
-                checkbox.id = 'cb-' + index;
-                checkbox.setAttribute('data-index', index);
+                checkbox.id = 'cb-' + originalIndex;
+                checkbox.checked = selectedProducts.has(originalIndex);
                 checkbox.addEventListener('change', function() {
-                    toggleSelection(index, this.checked);
+                    toggleSelection(originalIndex, this.checked);
                 });
 
                 var checkboxLabel = document.createElement('label');
-                checkboxLabel.setAttribute('for', 'cb-' + index);
-                checkboxLabel.textContent = 'Select Product';
+                checkboxLabel.setAttribute('for', 'cb-' + originalIndex);
+                checkboxLabel.textContent = 'Select';
 
                 checkboxWrapper.appendChild(checkbox);
                 checkboxWrapper.appendChild(checkboxLabel);
-                selectionControls.appendChild(checkboxWrapper);
+                actions.appendChild(checkboxWrapper);
 
-                info.appendChild(name);
-                info.appendChild(price);
-                info.appendChild(selectionControls);
-
-                card.appendChild(img);
+                card.appendChild(imageWrapper);
                 card.appendChild(info);
+                card.appendChild(actions);
 
                 return card;
             }
@@ -595,11 +944,11 @@
             }
 
             function updateStats() {
-                var totalEl = document.getElementById('totalProducts');
+                var visibleEl = document.getElementById('visibleProducts');
                 var selectedEl = document.getElementById('selectedCount');
                 var exportBtn = document.getElementById('exportBtn');
                 
-                totalEl.textContent = products.length;
+                visibleEl.textContent = filteredProducts.length;
                 selectedEl.textContent = selectedProducts.size;
                 exportBtn.disabled = selectedProducts.size === 0;
             }
@@ -610,16 +959,19 @@
                     return;
                 }
 
-                var csvContent = 'name\n';
+                var csvContent = 'name,length,color,laceSize,price\n';
                 
                 selectedProducts.forEach(function(index) {
                     var product = products[index];
-                    if (product && product.name) {
-                        var name = product.name;
-                        if (name.indexOf(',') !== -1 || name.indexOf('"') !== -1 || name.indexOf('\n') !== -1) {
-                            name = '"' + name.replace(/"/g, '""') + '"';
-                        }
-                        csvContent += name + '\n';
+                    if (product) {
+                        var row = [
+                            escapeCSV(product.name || ''),
+                            escapeCSV(product.length || ''),
+                            escapeCSV(product.color || ''),
+                            escapeCSV(product.laceSize || ''),
+                            escapeCSV(product.price || '')
+                        ];
+                        csvContent += row.join(',') + '\n';
                     }
                 });
 
@@ -627,7 +979,7 @@
                 var url = URL.createObjectURL(blob);
                 var link = document.createElement('a');
                 link.setAttribute('href', url);
-                link.setAttribute('download', 'selected_products.csv');
+                link.setAttribute('download', 'selected_units.csv');
                 link.style.visibility = 'hidden';
                 document.body.appendChild(link);
                 link.click();
@@ -635,21 +987,33 @@
                 URL.revokeObjectURL(url);
             }
 
+            function escapeCSV(str) {
+                if (str.indexOf(',') !== -1 || str.indexOf('"') !== -1 || str.indexOf('\n') !== -1) {
+                    return '"' + str.replace(/"/g, '""') + '"';
+                }
+                return str;
+            }
+
             function renderProducts() {
                 var grid = document.getElementById('productGrid');
                 grid.innerHTML = '';
 
-                if (products.length === 0) {
-                    grid.innerHTML = '<div class="empty-state"><h2>No Products Found</h2><p>The product catalog is empty</p></div>';
+                if (filteredProducts.length === 0) {
+                    var hasFilters = activeFilters.search || activeFilters.length || activeFilters.color || activeFilters.laceSize;
+                    if (hasFilters) {
+                        grid.innerHTML = '<div class="empty-state"><h2>No Matches Found</h2><p>Try adjusting your filters</p></div>';
+                    } else if (products.length === 0) {
+                        grid.innerHTML = '<div class="empty-state"><h2>No Products Found</h2><p>The catalog is empty</p></div>';
+                    }
                     return;
                 }
 
-                for (var i = 0; i < products.length; i++) {
-                    var card = createProductCard(products[i], i);
+                for (var i = 0; i < filteredProducts.length; i++) {
+                    var product = filteredProducts[i];
+                    var originalIndex = products.indexOf(product);
+                    var card = createProductCard(product, originalIndex);
                     grid.appendChild(card);
                 }
-                
-                updateStats();
             }
 
             function showError(message) {
@@ -667,7 +1031,10 @@
                         if (xhr.status === 200 || xhr.status === 0) {
                             try {
                                 products = parseCSV(xhr.responseText);
+                                filteredProducts = products.slice();
+                                populateFilters();
                                 renderProducts();
+                                updateStats();
                             } catch (e) {
                                 showError('Error parsing CSV: ' + e.message);
                             }
@@ -682,8 +1049,39 @@
                 xhr.send();
             }
 
+            // Event Listeners
+            document.getElementById('searchInput').addEventListener('input', function() {
+                activeFilters.search = this.value;
+                applyFilters();
+            });
+
+            document.getElementById('filterLength').addEventListener('change', function() {
+                activeFilters.length = this.value;
+                applyFilters();
+            });
+
+            document.getElementById('filterColor').addEventListener('change', function() {
+                activeFilters.color = this.value;
+                applyFilters();
+            });
+
+            document.getElementById('filterLaceSize').addEventListener('change', function() {
+                activeFilters.laceSize = this.value;
+                applyFilters();
+            });
+
+            document.getElementById('clearFiltersBtn').addEventListener('click', function() {
+                activeFilters = { search: '', length: '', color: '', laceSize: '' };
+                document.getElementById('searchInput').value = '';
+                document.getElementById('filterLength').value = '';
+                document.getElementById('filterColor').value = '';
+                document.getElementById('filterLaceSize').value = '';
+                applyFilters();
+            });
+
             document.getElementById('exportBtn').addEventListener('click', exportSelectedToCSV);
 
+            // Initialize
             loadProducts();
         })();
     </script>
