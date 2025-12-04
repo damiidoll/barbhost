@@ -384,6 +384,13 @@
         (function() {
             var products = [];
             var selectedProducts = new Set();
+            
+            // SVG placeholder for products without images (dark themed to match VX design)
+            var FALLBACK_IMAGE_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280">' +
+                '<rect width="280" height="280" fill="#1a1a1a"/>' +
+                '<text x="50%" y="50%" fill="#666" text-anchor="middle" dominant-baseline="middle" font-size="14">No Image</text>' +
+                '</svg>';
+            var FALLBACK_IMAGE = 'data:image/svg+xml,' + encodeURIComponent(FALLBACK_IMAGE_SVG);
 
             function parseCSV(text) {
                 var lines = text.split('\n');
@@ -454,7 +461,8 @@
                     return staticMatch[1];
                 }
                 
-                // Handle URLs with ID at the start (e.g., 11062b_xxx~mv2.jpg)
+                // Handle URLs with ID at the start
+                // Matches Wix media ID format like '11062b_5a5b3b1e0c2c4f5a8b9c0d1e2f3a4b5c'
                 var idMatch = url.match(/([a-f0-9]+_[a-f0-9]+)/i);
                 if (idMatch) {
                     return idMatch[1];
@@ -473,7 +481,8 @@
                     url = url.split(';')[0].trim();
                 }
                 
-                // Handle Wix static media format: db47f1_xxx~mv2.png
+                // Handle Wix static media format
+                // Matches pattern like 'db47f1_xxx~mv2.png' or '11062b_abc123~mv2.jpg'
                 if (url.match(/^[a-f0-9_]+~mv2\.(png|jpg|jpeg|webp)$/i)) {
                     return 'https://static.wixstatic.com/media/' + url;
                 }
@@ -518,17 +527,14 @@
                 card.setAttribute('data-index', index);
 
                 var imageUrl = convertToWixUrl(product.productImageUrl);
-                
-                var fallbackSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280"><rect width="280" height="280" fill="#1a1a1a" /><text x="50%" y="50%" fill="#666" text-anchor="middle" dominant-baseline="middle" font-size="14">No Image</text></svg>';
-                var fallback = 'data:image/svg+xml,' + encodeURIComponent(fallbackSvg);
 
                 var img = document.createElement('img');
                 img.className = 'product-image';
-                img.src = imageUrl || fallback;
+                img.src = imageUrl || FALLBACK_IMAGE;
                 img.alt = product.name || 'Product Image';
                 img.loading = 'lazy';
                 img.onerror = function() {
-                    this.src = fallback;
+                    this.src = FALLBACK_IMAGE;
                 };
 
                 var info = document.createElement('div');
