@@ -1,24 +1,25 @@
 #!/usr/bin/env python3
 """
-Script to update all products with Length and Lace Size.
-Uses bulk update API to update all products at once.
+Update ALL Ready Units products with Length and Lace Size.
+This script will be executed to update all 141 products.
 """
 import json
-import sys
+import re
 
-# Load update data
-with open('product_updates.json', 'r') as f:
-    updates = json.load(f)
+# Load name mapping
+with open('product_name_mapping.json', 'r') as f:
+    name_mapping = json.load(f)
 
-# Create lookup - we need to match by product name or exportProductId
-# The exportProductId in Wix is like "product_46"
-# But handle_id in CSV is like "vx_amber"
-# We'll need to match by extracting the product name from the Wix product name
+def extract_base_name(product_name):
+    """Extract base name from product name"""
+    if '✦' in product_name:
+        base_name = product_name.split('✦')[0].strip().lower()
+    else:
+        base_name = re.sub(r'\s*[✦\d"].*', '', product_name).strip().lower()
+    return base_name
 
-print(f"Loaded {len(updates)} update records")
-print("\nReady to update products!")
-print("We need to:")
-print("1. Fetch all products from Wix")
-print("2. Match them to update data by name/slug")
-print("3. Update each product with Length and Lace Size sections prepended")
+# Product data from API responses (we have all 141 products)
+# For each product, extract base name, match to mapping, and update
 
+print("Ready to update ALL 141 products!")
+print("Each product will be matched by base name and updated with Length and Lace Size from the mapping.")

@@ -1,0 +1,707 @@
+{
+  "vx_amber": {
+    "length": "12\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Amber \u2726 12\" 5X5 HD Lace"
+  },
+  "vx_angel-face": {
+    "length": "12\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Angel face \u2726 12\" 5X5 HD Lace"
+  },
+  "vx_ariel": {
+    "length": "24\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Ariel \u2726 24\" 5X5 HD Lace"
+  },
+  "vx_buss-down-shawty": {
+    "length": "20\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Buss Down Barb \u2726 20\" 5X5 HD Lace"
+  },
+  "vx_bad-girl-brown": {
+    "length": "20\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Bad Girl Brown \u2726 20\" 5X5 HD Lace"
+  },
+  "vx_baddie": {
+    "length": "22\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Baddie \u2726 22\" 5X5 HD Lace"
+  },
+  "vx_beautiful": {
+    "length": "16\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Beautiful \u2726 16\" 5X5 HD Lace"
+  },
+  "vx_bella": {
+    "length": "16\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Bella \u2726 16\" 5X5 HD Lace"
+  },
+  "vx_blair": {
+    "length": "18\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Blair \u2726 18\" 5x5 HD Lace"
+  },
+  "vx_bleu": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Bleu \u2726 12\" 5x5 HD Lace"
+  },
+  "vx_bougie-blonde-latto": {
+    "length": "18\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Bougie Blonde Latto \u2726 18\" 5X5 HD Lace"
+  },
+  "vx_bronze-have-more-fun": {
+    "length": "18\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Bronze Have More Fun \u2726 18\" 5X5 HD Lace"
+  },
+  "vx_brown-girl-4": {
+    "length": "16\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Brown Girl #4 \u2726 16\" 5X5 HD Lace"
+  },
+  "vx_buss-down-cardi": {
+    "length": "26\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Buss Down Cardi \u2726 26\" 5X5 HD Lace"
+  },
+  "vx_char": {
+    "length": "20\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Char \u2726 20\" 5X5 HD Lace"
+  },
+  "vx_co-co": {
+    "length": "22\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Co-Co \u2726 22\" 5X5 HD Lace"
+  },
+  "vx_coco": {
+    "length": "22\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "CoCo \u2726 22\" 5X5 HD Lace"
+  },
+  "vx_da-da": {
+    "length": "12\"",
+    "lace_size": "4x6 HD Lace",
+    "name": "Da-Da \u2726 12\" 4x6 HD Lace"
+  },
+  "vx_deva": {
+    "length": "12\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Deva \u2726 12\" 5X5 HD Lace"
+  },
+  "vx_dixie": {
+    "length": "12\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Dixie \u2726 12\" 5X5 HD Lace"
+  },
+  "vx_dolly": {
+    "length": "18\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Dolly \u2726 18\" 5X5 HD Lace"
+  },
+  "vx_dutches": {
+    "length": "16\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Dutches \u2726 16\" 5X5 HD Lace"
+  },
+  "vx_free": {
+    "length": "16\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Free \u2726 16\" 5X5 HD Lace"
+  },
+  "vx_goddess": {
+    "length": "18\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Goddess \u2726 18\" 5X5 HD Lace"
+  },
+  "vx_kim": {
+    "length": "18\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "KIM \u2726 18\" 5X5 HD Lace"
+  },
+  "vx_kay": {
+    "length": "18\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Kay \u2726 18\" 5X5 HD Lace"
+  },
+  "vx_kayla": {
+    "length": "20\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Kayla \u2726 20\" 5X5 HD Lace"
+  },
+  "vx_lizzy": {
+    "length": "14\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Lizzy \u2726 14\" 5X5 HD Lace"
+  },
+  "vx_magic": {
+    "length": "16\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Magic \u2726 16\" 5X5 HD Lace"
+  },
+  "vx_maxi": {
+    "length": "12\"",
+    "lace_size": "4X6 HD Lace",
+    "name": "Maxi \u2726 12\" 4X6 HD Lace"
+  },
+  "vx_meka": {
+    "length": "20\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Meka \u2726 20\" 5X5 HD Lace"
+  },
+  "vx_mi-mi": {
+    "length": "12\"",
+    "lace_size": "4X6 HD Lace",
+    "name": "Mi-Mi \u2726 12\" 4X6 HD Lace"
+  },
+  "vx_mia": {
+    "length": "12\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Mia \u2726 12\" 5X5 HD Lace"
+  },
+  "vx_mocha": {
+    "length": "12\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Mocha \u2726 12\" 5X5 HD Lace"
+  },
+  "vx_my-best-girl": {
+    "length": "20\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "My Best Girl \u2726 20\" 5X5 HD Lace"
+  },
+  "vx_pretty-brown-brown": {
+    "length": "16\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Pretty Brown Brown \u2726 16\" 5X5 HD Lace"
+  },
+  "vx_ruby-woo": {
+    "length": "20\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Ruby Woo \u2726 20\" 5X5 HD Lace"
+  },
+  "vx_sasha-fierce": {
+    "length": "20\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Sasha Fierce \u2726 20\" 5X5 HD Lace"
+  },
+  "vx_scarlet-bell": {
+    "length": "20\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Scarlet Bell \u2726 20\" 5X5 HD Lace"
+  },
+  "vx_shun": {
+    "length": "12\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Shun \u2726 12\" 5X5 HD Lace"
+  },
+  "vx_shunte": {
+    "length": "18\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Shunte \u2726 18\" 5X5 HD Lace"
+  },
+  "vx_soft-girl-4": {
+    "length": "18\"",
+    "lace_size": "2X6 HD Lace",
+    "name": "Soft Girl #4 \u2726 18\" 2X6 HD Lace"
+  },
+  "vx_soft-girl-6": {
+    "length": "16\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Soft Girl #6 \u2726 16\" 5X5 HD Lace"
+  },
+  "vx_sue": {
+    "length": "12\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Sue \u2726 12\" 5X5 HD Lace"
+  },
+  "vx_suzzie": {
+    "length": "12\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Suzzie \u2726 12\" 5X5 HD Lace"
+  },
+  "vx_sweetee": {
+    "length": "18\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Sweetee \u2726 18\" 5X5 HD Lace"
+  },
+  "vx_tia": {
+    "length": "18\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Tia \u2726 18\" 5X5 HD Lace"
+  },
+  "vx_tiara": {
+    "length": "12\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Tiara \u2726 12\" 5X5 HD Lace"
+  },
+  "vx_trina": {
+    "length": "20\"",
+    "lace_size": "13X6 HD Lace",
+    "name": "Trina \u2726 20\" 13X6 HD Lace"
+  },
+  "vx_vx-bob": {
+    "length": "12\"",
+    "lace_size": "2X6 HD Lace",
+    "name": "VX Bob \u2726 12\" 2X6 HD Lace"
+  },
+  "vx_kyla": {
+    "length": "16\"",
+    "lace_size": "5X5 HD Lace",
+    "name": "Kyla \u2726 16\" 5X5 HD Lace"
+  },
+  "product_1c039fc6-87af-0b98-b165-97f3c5c5e0a3": {
+    "length": "16\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Black Jazz \u2726 16\" 5x5 HD Lace"
+  },
+  "product_0": {
+    "length": "16\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Lilly \u2726 16\" 5x5 HD Lace"
+  },
+  "product_1": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Bre Bre \u2726 20\" 5x5 HD Lace"
+  },
+  "product_2": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Margo \u2726 20\" 5x5 HD Lace"
+  },
+  "product_3": {
+    "length": "12\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Cold Black Diva \u2726 12\" 2x6 HD Lace"
+  },
+  "product_4": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Natalie \u2726 20\" 5x5 HD Lace"
+  },
+  "product_5": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Lana \u2726 20\" 5x5 HD Lace"
+  },
+  "product_6": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Ice Spice \u2726 20\" 5x5 HD Lace"
+  },
+  "product_7": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Hazel \u2726 20\" 5x5 HD Lace"
+  },
+  "product_8": {
+    "length": "30\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Tuttie \u2726 30\" 5x5 HD Lace"
+  },
+  "product_9": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Lucky \u2726 12\" 5x5 HD Lace"
+  },
+  "product_10": {
+    "length": "18\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Cassie \u2726 18\" 5x5 HD Lace"
+  },
+  "product_11": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Jada \u2726 12\" 5x5 HD Lace"
+  },
+  "product_12": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Ruby \u2726 12\" 5x5 HD Lace"
+  },
+  "product_13": {
+    "length": "24\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Lover Gurl \u2726 24\" 5x5 HD Lace"
+  },
+  "product_14": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Pearl \u2726 12\" 5x5 HD Lace"
+  },
+  "product_15": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Glam \u2726 12\" 5x5 HD Lace"
+  },
+  "product_16": {
+    "length": "10\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Brittany \u2726 10\" 5x5 HD Lace"
+  },
+  "product_17": {
+    "length": "10\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "June \u2726 10\" 5x5 HD Lace"
+  },
+  "product_18": {
+    "length": "10\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Jody \u2726 10\" 2x6 HD Lace"
+  },
+  "product_19": {
+    "length": "12\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Honey \u2726 12\" 2x6 HD Lace"
+  },
+  "product_20": {
+    "length": "16\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Sway \u2726 16\" 5x5 HD Lace"
+  },
+  "product_21": {
+    "length": "18\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Molly \u2726 18\" 5x5 HD Lace"
+  },
+  "product_22": {
+    "length": "16\"",
+    "lace_size": "6x6 HD Lace",
+    "name": "Bad Dolly \u2726 16\" 6x6 HD Lace"
+  },
+  "product_23": {
+    "length": "20\"",
+    "lace_size": "6x6 HD Lace",
+    "name": "Cash Dolly \u2726 20\" 6x6 HD Lace"
+  },
+  "product_24": {
+    "length": "18\"",
+    "lace_size": "6x6 HD Lace",
+    "name": "Good Dolly \u2726 18\" 6x6 HD Lace"
+  },
+  "product_25": {
+    "length": "18\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Ebony \u2726 18\" 5x5 HD Lace"
+  },
+  "product_26": {
+    "length": "16\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Missy \u2726 16\" 5x5 HD Lace"
+  },
+  "product_27": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Lola \u2726 12\" 5x5 HD Lace"
+  },
+  "product_28": {
+    "length": "14\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Daisy \u2726 14\" 5x5 HD Lace"
+  },
+  "product_29": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Paris \u2726 12\" 5x5 HD Lace"
+  },
+  "product_30": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Baddie Bob \u2726 12\" 5x5 HD Lace"
+  },
+  "product_31": {
+    "length": "16\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Amire \u2726 16\" 5x5 HD Lace"
+  },
+  "product_32": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "JoJo \u2726 12\" 5x5 HD Lace"
+  },
+  "product_33": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Lola \u2726 12\" 5x5 HD Lace"
+  },
+  "product_34": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Snowflake \u2726 20\" 5x5 HD Lace"
+  },
+  "product_35": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Ray \u2726 20\" 5x5 HD Lace"
+  },
+  "product_36": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Wild Thang \u2726 20\" 5x5 HD Lace"
+  },
+  "product_37": {
+    "length": "18\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Jade \u2726 18\" 5x5 HD Lace"
+  },
+  "product_38": {
+    "length": "18\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Hazelnut \u2726 18\" 2x6 HD Lace"
+  },
+  "product_39": {
+    "length": "18\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Holly Jolly \u2726 18\" 2x6 HD Lace"
+  },
+  "product_40": {
+    "length": "16\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Spicy Nice \u2726 16\" 2x6 HD Lace"
+  },
+  "product_41": {
+    "length": "14\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Star \u2726 14\" 2x6 HD Lace"
+  },
+  "product_42": {
+    "length": "22\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Duffy \u2726 22\" 5x5 HD Lace"
+  },
+  "product_43": {
+    "length": "16\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Christina \u2726 16\" 2x6 HD Lace"
+  },
+  "product_44": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Lori \u2726 20\" 5x5 HD Lace"
+  },
+  "product_45": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Bougie Blonde Miami \u2726 20\" 5x5 HD Lace"
+  },
+  "product_46": {
+    "length": "16\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Glo \u2726 16\" 5x5 HD Lace"
+  },
+  "product_47": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Sway \u2726 20\" 5x5 HD Lace"
+  },
+  "product_48": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Myra \u2726 20\" 5x5 HD Lace"
+  },
+  "product_49": {
+    "length": "16\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Sunshine \u2726 16\" 5x5 HD Lace"
+  },
+  "product_50": {
+    "length": "18\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Brown Girl 3 \u2726 18\" 5x5 HD Lace"
+  },
+  "product_51": {
+    "length": "18\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Brown Girl 2 \u2726 18\" 5x5 HD Lace"
+  },
+  "product_52": {
+    "length": "18\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Fall in love \u2726 18\" 5x5 HD Lace"
+  },
+  "product_53": {
+    "length": "18\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Yanndy \u2726 18\" 5x5 HD Lace"
+  },
+  "product_54": {
+    "length": "14\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Lola \u2726 14\" 5x5 HD Lace"
+  },
+  "product_55": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Diva \u2726 12\" 5x5 HD Lace"
+  },
+  "product_56": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Buss Down Shawty \u2726 20\" 5x5 HD Lace"
+  },
+  "product_57": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Honey \u2726 20\" 5x5 HD Lace"
+  },
+  "product_58": {
+    "length": "18\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Black Cherry \u2726 18\" 5x5 HD Lace"
+  },
+  "product_59": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Brittany \u2726 12\" 5x5 HD Lace"
+  },
+  "product_60": {
+    "length": "18\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Miss Bae \u2726 18\" 5x5 HD Lace"
+  },
+  "product_61": {
+    "length": "16\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Ruby \u2726 16\" 5x5 HD Lace"
+  },
+  "product_62": {
+    "length": "14\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Ginger \u2726 14\" 5x5 HD Lace"
+  },
+  "product_63": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Sassy \u2726 12\" 5x5 HD Lace"
+  },
+  "product_64": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Fancy \u2726 12\" 5x5 HD Lace"
+  },
+  "product_65": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Good Girl \u2726 12\" 5x5 HD Lace"
+  },
+  "product_66": {
+    "length": "26\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Dream \u2726 26\" 5x5 HD Lace"
+  },
+  "product_67": {
+    "length": "16\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Jessie \u2726 16\" 5x5 HD Lace"
+  },
+  "product_68": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Ash Blonde Bombshell \u2726 12\" 5x5 HD Lace"
+  },
+  "product_69": {
+    "length": "16\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Twin \u2726 16\" 5x5 HD Lace"
+  },
+  "product_70": {
+    "length": "14\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Pearl \u2726 14\" 5x5 HD Lace"
+  },
+  "product_71": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Tara \u2726 12\" 5x5 HD Lace"
+  },
+  "product_72": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Jodi \u2726 12\" 5x5 HD Lace"
+  },
+  "product_73": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "June \u2726 12\" 5x5 HD Lace"
+  },
+  "product_74": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Lulu \u2726 12\" 5x5 HD Lace"
+  },
+  "product_75": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Sasha fierce \u2726 12\" 5x5 HD Lace"
+  },
+  "product_76": {
+    "length": "14\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Sexy Red Velvet \u2726 14\" 5x5 HD Lace"
+  },
+  "product_77": {
+    "length": "12\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Oh Darling \u2726 12\" 5x5 HD Lace"
+  },
+  "product_78": {
+    "length": "14\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Sassy \u2726 14\" 5x5 HD Lace"
+  },
+  "product_79": {
+    "length": "14\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Tasha Mac \u2726 14\" 5x5 HD Lace"
+  },
+  "product_80": {
+    "length": "18\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Angel \u2726 18\" 2x6 HD Lace"
+  },
+  "product_81": {
+    "length": "16\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Ashley \u2726 16\" 2x6 HD Lace"
+  },
+  "product_82": {
+    "length": "10\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Nyla \u2726 10\" 2x6 HD Lace"
+  },
+  "product_83": {
+    "length": "14\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Star \u2726 14\" 2x6 HD Lace"
+  },
+  "product_84": {
+    "length": "10\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Jodi \u2726 10\" 2x6 HD Lace"
+  },
+  "product_85": {
+    "length": "16\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Taylor \u2726 16\" 2x6 HD Lace"
+  },
+  "product_86": {
+    "length": "20\"",
+    "lace_size": "5x5 HD Lace",
+    "name": "Scarlett \u2726 20\" 5x5 HD Lace"
+  },
+  "product_87": {
+    "length": "18\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Molly \u2726 18\" 2x6 HD Lace"
+  },
+  "product_88": {
+    "length": "16\"",
+    "lace_size": "2x6 HD Lace",
+    "name": "Eva \u2726 16\" 2x6 HD Lace"
+  }
+}
